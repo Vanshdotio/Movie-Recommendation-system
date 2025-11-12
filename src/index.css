@@ -1,0 +1,15 @@
+@import "tailwindcss";
+.gradient-btn{
+    background: linear-gradient(90deg, #217df5 40%, #E52E71 100%);
+}
+@font-face {
+    font-family:"Inter";
+    src: url('/public/assets/Inter_18pt-Regular.ttf');
+}
+@font-face {
+    font-family: "ROSSTEN";
+    src: url('/public/assets/ROSSTEN.ttf');
+}
+.search{
+    mix-blend-mode: difference;
+}
