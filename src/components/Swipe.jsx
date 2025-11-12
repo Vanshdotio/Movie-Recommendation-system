@@ -37,7 +37,7 @@ const Swipe = () => {
                 loop
                 playsInline
                 className=" h-screen w-full object-cover "
-                src="/public/assets/JURASSIC WORLD DOMINION ｜ Official Hindi Trailer (Universal Pictures) HD ｜ In Cinemas June 10th.mp4"
+                src="https://ik.imagekit.io/wcmq9ntmo/JURASSIC%20WORLD%20DOMINION%20%EF%BD%9C%20Official%20Hindi%20Trailer%20(Universal%20Pictures)%20HD%20%EF%BD%9C%20In%20Cinemas%20June%2010th.mp4?updatedAt=1762979047561"
               ></video>
             </div>
             <div className="absolute flex flex-col bottom-10 left-0 ml-6 gap-5">
@@ -88,7 +88,7 @@ const Swipe = () => {
                 loop
                 playsInline
                 className="h-screen w-full object-cover "
-                src="/public/assets/Terrifier 2.mp4"
+                src="https://ik.imagekit.io/wcmq9ntmo/Terrifier%202.mp4?updatedAt=1762979040967"
               ></video>
             </div>
             <div className="absolute flex flex-col bottom-10 left-0 ml-6 gap-5">
@@ -138,7 +138,7 @@ const Swipe = () => {
                 loop
                 playsInline
                 className="h-screen w-full object-cover "
-                src="/public/assets/Final Destination Bloodlines ｜ Official Trailer.mp4"
+                src="https://ik.imagekit.io/wcmq9ntmo/Final%20Destination%20Bloodlines%20%EF%BD%9C%20Official%20Trailer.mp4?updatedAt=1762979044221"
               ></video>
             </div>
             <div className="absolute flex flex-col bottom-10 left-0 ml-6 gap-5">
