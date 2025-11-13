@@ -2,6 +2,7 @@ import React from "react";
 import Nav from "./components/Nav";
 import Home from "./pages/Home";
 import Lenis from "lenis";
+import Approute from "./routes/Approute";
 
 // Initialize Lenis
 const lenis = new Lenis();
@@ -19,6 +20,7 @@ const App = () => {
     <>
       <Nav />
       <Home />
+      <Approute />
     </>
   );
 };

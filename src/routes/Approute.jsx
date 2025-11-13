@@ -1,8 +1,14 @@
 import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import Explore from '../pages/Explore'
 
 const Approute = () => {
   return (
-    <div>Approute</div>
+    <>
+      <Routes>
+        <Route path='/explore' element={<Explore/>} />
+      </Routes>
+    </>
   )
 }
 
