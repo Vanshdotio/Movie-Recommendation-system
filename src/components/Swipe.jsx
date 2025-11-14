@@ -335,9 +335,10 @@ const Swipe = () => {
             </div>
             <div className="absolute flex flex-col bottom-10 left-0 ml-6 gap-5">
               <img
-                className="h-50 w-90 -ml-20"
+                className="h-50 w-90 -ml-10"
                 src="/public/assets/evil-dead-rise.png"
                 alt="evil dead rise"
+                loading="lazy"
               />
               <span className="font-semibold flex items-center gap-2">
                 <h3>• 2023</h3>
