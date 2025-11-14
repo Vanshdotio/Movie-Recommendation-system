@@ -35,7 +35,7 @@ const Explore = () => {
           ...page3.data.results,
         ];
 
-        setMovies(allMovies.slice(0, 59));
+        setMovies(allMovies.slice(0, 60));
       } catch (err) {
         console.error(err);
       }
@@ -50,8 +50,8 @@ const Explore = () => {
     : movies;
 
   return (
-    <div className="min-h-screen w-full pt-20 select-none text-white bg-black">
-      <h1 className="text-2xl font-[600] px-10 font-[Inter]">Explore</h1>
+    <div className="min-h-screen pb-2 w-full pt-20 select-none bg-black text-white ">
+      <h1 className="text-5xl font-[600] px-10 font-[Inter]">Explore</h1>
 
       {/* Category Pills */}
       <div className="genre flex gap-7 mx-10 pt-3 overflow-x-auto md:overflow-hidden font-[Inter] scrollbar-hide">
@@ -63,7 +63,7 @@ const Explore = () => {
                 selectedGenre === genreMap[cat] ? null : genreMap[cat]
               )
             }
-            className={`p-1 px-2.5 text-sm cursor-pointer rounded-3xl
+            className={`genre-section font-medium p-1 px-2.5 text-sm cursor-pointer rounded-3xl
               ${
                 selectedGenre === genreMap[cat]
                   ? "bg-yellow-300 text-black"

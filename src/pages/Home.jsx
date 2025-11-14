@@ -5,7 +5,7 @@ import Trending from '../components/Trending'
 const Home = () => {
   return (
     <>
-    <div className=''>
+    <div className='explore h-screen w-full '>
         <Swipe />
         <Trending />
     </div>

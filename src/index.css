@@ -13,8 +13,13 @@
 .search{
     mix-blend-mode: difference;
 }
-
+/* .explore{
+    background: linear-gradient(120deg, #000000e8 0%,#000000c9 50%, #111111 100%);
+} */
 .genre::-webkit-scrollbar{
     display: none;
     scroll-snap-type: x mandatory;
+}
+.genre-section{
+
 }
