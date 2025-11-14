@@ -19,7 +19,6 @@ const App = () => {
   return (
     <>
       <Nav />
-      <Home />
       <Approute />
     </>
   );

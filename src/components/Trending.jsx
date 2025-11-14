@@ -9,8 +9,8 @@ const Trending = () => {
         </span>
         <div className="flex gap-10">
           <div className="flex font-[ROSSTEN] mt-5">
-            <div className="flex tracking-[-10px]">
-              <span className="text-[12rem]">1</span>
+            <div className="flex tracking-[-25px]">
+              <span className="text-[12rem] select-none pt-2 z-9 ">1</span>
               <span className="object-fit h-50 w-40">
                 <img
                   className="h-full w-full rounded-xl"
@@ -21,20 +21,20 @@ const Trending = () => {
             </div>
           </div>
           <div className="font-[ROSSTEN] mt-5">
-            <div className="flex tracking-[-10px]">
-              <span className="text-[12rem]">2</span>
+            <div className="flex tracking-[-25px]">
+              <span className="text-[12rem] select-none pt-2 z-9 ">2</span>
               <span className="object-fit h-50 w-40">
                 <img
                   className="h-full w-full rounded-xl"
-                  src="https://stat4.bollywoodhungama.in/wp-content/uploads/2025/10/Kis-Kisko-Pyaar-Karoon-2.jpg"
+                  src="https://m.media-amazon.com/images/M/MV5BMTk2ZmFhYjctYWZiYy00N2IxLWEzMWItZGRiMDY4ZDQwZWFlXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
                   alt=""
                 />
               </span>
             </div>
           </div>
           <div className="font-[ROSSTEN] mt-5">
-            <div className="flex tracking-[-10px]">
-              <span className="text-[12rem]">3</span>
+            <div className="flex tracking-[-25px]">
+              <span className="text-[12rem] select-none pt-2 z-9 ">3</span>
               <span className="object-fit h-50 w-40">
                 <img
                   className="h-full w-full rounded-xl"
@@ -45,8 +45,8 @@ const Trending = () => {
             </div>
           </div>
           <div className="font-[ROSSTEN] mt-5">
-            <div className="flex tracking-[-10px]">
-              <span className="text-[12rem]">4</span>
+            <div className="flex tracking-[-25px]">
+              <span className="text-[12rem] select-none pt-2 z-9 ">4</span>
               <span className="object-fit h-50 w-40">
                 <img
                   className="h-full w-full rounded-xl"
@@ -57,8 +57,8 @@ const Trending = () => {
             </div>
           </div>
           <div className="font-[ROSSTEN] mt-5">
-            <div className="flex tracking-[-10px]">
-              <span className="text-[12rem]">5</span>
+            <div className="flex tracking-[-25px]">
+              <span className="text-[12rem] select-none pt-2 z-9 ">5</span>
               <span className="object-fit h-50 w-40">
                 <img
                   className="h-full w-full rounded-xl"

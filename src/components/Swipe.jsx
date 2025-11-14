@@ -69,7 +69,7 @@ const Swipe = () => {
         }}
         modules={[Autoplay, Pagination, Navigation]}
         onAutoplayTimeLeft={onAutoplayTimeLeft}
-        className="mySwiper h-screen w-full bg-black"
+        className="mySwiper h-screen w-full bg-black cursor-grab active:cursor-grabbing"
       >
         {/* ===== Slide 1 ===== */}
         <SwiperSlide>
@@ -85,7 +85,7 @@ const Swipe = () => {
               {/* 🔇 Mute/Unmute Button */}
               <button
                 onClick={() => toggleMute(0)}
-                className="absolute bottom-10 right-6  bg-white/60 p-2 rounded-full text-white hover:bg-white/30 transition"
+                className="absolute bottom-10 right-6 cursor-pointer bg-white/60 p-2 rounded-full text-white hover:bg-white/30 transition"
               >
                 {mutedStates[0] ? (
                   <svg
@@ -117,7 +117,6 @@ const Swipe = () => {
                 src="https://img10.hotstar.com/image/upload/f_auto,h_124/sources/r1/cms/prod/9166/1761311139166-t"
                 alt=""
               />
-              <h2 className="font-semibold">Relasing on Nov 14</h2>
               <span className="font-semibold flex items-center gap-2">
                 <h3>• 2025</h3>
                 <h3>• U/A 13+</h3>
@@ -133,19 +132,17 @@ const Swipe = () => {
                 <span>Animals</span> | <span>Adventure</span> |{" "}
                 <span>Science Fiction</span> | <span>Thriller</span>
               </h2>
-              <button
-                className="gradient-btn p-2 w-80 my-5 font-[600] rounded-sm items-center justify-center flex gap-2 cursor-pointer "
-                type="submit"
-              >
+              <button className="gradient-btn p-2 w-80 my-5 font-bold rounded-sm items-center justify-center flex gap-2 cursor-pointer">
                 <svg
-                  className="h-5 w-5"
                   xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
+                  width="20"
+                  height="20"
+                  fill="#ffffff"
+                  viewBox="0 0 256 256"
                 >
-                  <path d="M22 20H2V18H3V11.0314C3 6.04348 7.02944 2 12 2C16.9706 2 21 6.04348 21 11.0314V18H22V20ZM9.5 21H14.5C14.5 22.3807 13.3807 23.5 12 23.5C10.6193 23.5 9.5 22.3807 9.5 21Z"></path>
-                </svg>{" "}
-                Remind Me <span className="font-medium text-sm]">Nov 14</span>
+                  <path d="M240,128a15.74,15.74,0,0,1-7.6,13.51L88.32,229.65a16,16,0,0,1-16.2.3A15.86,15.86,0,0,1,64,216.13V39.87a15.86,15.86,0,0,1,8.12-13.82,16,16,0,0,1,16.2.3L232.4,114.49A15.74,15.74,0,0,1,240,128Z"></path>
+                </svg>
+                <span>Watch Now</span>
               </button>
             </div>
           </div>
@@ -164,7 +161,7 @@ const Swipe = () => {
               ></video>
               <button
                 onClick={() => toggleMute(1)}
-                className="absolute bottom-10 right-6 bg-white/60 p-2 rounded-full text-white hover:bg-white/30 transition"
+                className="absolute bottom-10 right-6 cursor-pointer bg-white/60 p-2 rounded-full text-white hover:bg-white/30 transition"
               >
                 {mutedStates[1] ? (
                   <svg
@@ -211,7 +208,16 @@ const Swipe = () => {
                 <span>Dark Humour</span> | <span>Psychological</span>
               </h2>
               <button className="gradient-btn p-2 w-80 my-5 font-bold rounded-sm items-center justify-center flex gap-2 cursor-pointer">
-                ▶ Watch Now
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="#ffffff"
+                  viewBox="0 0 256 256"
+                >
+                  <path d="M240,128a15.74,15.74,0,0,1-7.6,13.51L88.32,229.65a16,16,0,0,1-16.2.3A15.86,15.86,0,0,1,64,216.13V39.87a15.86,15.86,0,0,1,8.12-13.82,16,16,0,0,1,16.2.3L232.4,114.49A15.74,15.74,0,0,1,240,128Z"></path>
+                </svg>
+                <span>Watch Now</span>
               </button>
             </div>
           </div>
@@ -230,7 +236,7 @@ const Swipe = () => {
               ></video>
               <button
                 onClick={() => toggleMute(2)}
-                className="absolute bottom-10 right-6 bg-white/60 p-2 rounded-full text-white hover:bg-white/30 transition"
+                className="absolute bottom-10 cursor-pointer right-6 bg-white/60 p-2 rounded-full text-white hover:bg-white/30 transition"
               >
                 {mutedStates[2] ? (
                   <svg
@@ -276,7 +282,16 @@ const Swipe = () => {
                 <span>Supernatural</span> | <span>Blood & Gore</span>
               </h2>
               <button className="gradient-btn p-2 w-80 my-5 font-bold rounded-sm items-center justify-center flex gap-2 cursor-pointer">
-                ▶ Watch Now
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="#ffffff"
+                  viewBox="0 0 256 256"
+                >
+                  <path d="M240,128a15.74,15.74,0,0,1-7.6,13.51L88.32,229.65a16,16,0,0,1-16.2.3A15.86,15.86,0,0,1,64,216.13V39.87a15.86,15.86,0,0,1,8.12-13.82,16,16,0,0,1,16.2.3L232.4,114.49A15.74,15.74,0,0,1,240,128Z"></path>
+                </svg>
+                <span>Watch Now</span>
               </button>
             </div>
           </div>

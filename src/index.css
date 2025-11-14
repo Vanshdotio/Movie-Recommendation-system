@@ -13,3 +13,8 @@
 .search{
     mix-blend-mode: difference;
 }
+
+.genre::-webkit-scrollbar{
+    display: none;
+    scroll-snap-type: x mandatory;
+}
