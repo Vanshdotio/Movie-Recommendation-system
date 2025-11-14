@@ -337,7 +337,7 @@ const Swipe = () => {
               <img
                 className="h-50 w-90 -ml-20"
                 src="/public/assets/evil-dead-rise.png"
-                alt=""
+                alt="evil dead rise"
               />
               <span className="font-semibold flex items-center gap-2">
                 <h3>• 2023</h3>
