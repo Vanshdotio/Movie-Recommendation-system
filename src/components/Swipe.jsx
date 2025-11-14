@@ -336,7 +336,7 @@ const Swipe = () => {
             <div className="absolute flex flex-col bottom-10 left-0 ml-6 gap-5">
               <img
                 className="h-50 w-90 -ml-10"
-                src="/public/assets/evil-dead-rise.png"
+                src="https://ik.imagekit.io/6k8kxavyw5/evil-dead-rise.png?updatedAt=1763152250098"
                 alt="evil dead rise"
                 loading="lazy"
               />
