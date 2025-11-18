@@ -35,7 +35,7 @@ const Explore = () => {
           ...page3.data.results,
         ];
 
-        setMovies(allMovies.slice(0, 60));
+        setMovies(allMovies.slice(0, 51));
       } catch (err) {
         console.error(err);
       }
@@ -51,10 +51,10 @@ const Explore = () => {
 
   return (
     <div className="min-h-screen pb-2 w-full pt-20 select-none bg-black text-white ">
-      <h1 className="text-5xl font-[600] px-10 font-[Inter]">Explore</h1>
+      <h1 className="text-4xl font-[600] px-6 md:px-10 font-[Inter]">Explore</h1>
 
       {/* Category Pills */}
-      <div className="genre flex gap-7 mx-10 pt-3 overflow-x-auto md:overflow-hidden font-[Inter] scrollbar-hide">
+      <div className="genre flex gap-7 mx-6 md:mx-10 pt-3 overflow-x-auto md:overflow-hidden font-[Inter] scrollbar-hide">
         {Object.keys(genreMap).map((cat) => (
           <span
             key={cat}
@@ -76,7 +76,7 @@ const Explore = () => {
       </div>
 
       {/* Movies Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 px-10 mt-5">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 px-5 md:px-8 mt-5">
         {filteredMovies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}

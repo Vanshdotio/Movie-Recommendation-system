@@ -1,7 +1,7 @@
 const MovieCard = ({ movie }) => {
   return (
     <div
-      className="group bg-[#111] rounded-lg overflow-hidden 
+      className="group bg-[#111] rou  nded-lg overflow-hidden 
                  shadow-md hover:shadow-xl hover:-translate-y-1 
                  transition-all duration-300 cursor-pointer"
     >

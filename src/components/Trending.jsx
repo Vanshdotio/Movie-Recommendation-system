@@ -3,9 +3,9 @@ import React from "react";
 const Trending = () => {
   return (
     <>
-      <div className="explore h-screen w-full font-[inter] p-10 px-12 text-white bg-black">
+      <div className="explore h-screen w-full overflow-y-auto font-[inter] p-10 px-12 text-white bg-black">
         <span>
-          <h1 className="text-4xl font-medium ">Trending</h1>
+          <h1 className="text-2xl md:text-3xl font-medium ">Trending</h1>
         </span>
         <div className="flex gap-13">
           <div className="flex font-[ROSSTEN] mt-5">
