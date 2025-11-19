@@ -36,9 +36,9 @@ const SearchOverlay = () => {
 
   return (
     <>
-      <div className="realtive w-full text-white pt-20 font-[Inter] min-h-screen overflow-hidden bg-black">
+      <div className="relative w-full text-white pt-20 font-[Inter] min-h-screen  bg-black">
         {/* Search Box */}
-        <div className="w-full fixed justify-center  px-[1rem] md:px-10">
+        <div className="w-full flex justify-center  px-[1rem] md:px-10">
           <div className="flex gap-3 w-full p-3 rounded-xl bg-gray-900 relative items-center">
             {/* Search Icon */}
             <svg
@@ -89,16 +89,16 @@ const SearchOverlay = () => {
           </div>
         </div>
 
-        <div className=" mt-6 px-10 overflow-y-auto ">
+        <div className=" mt-5 px-10 overflow-y-auto">
           {loading && <p className="text-gray-400">Searching...</p>}
 
           {!loading && results.length > 0 && (
             <>
-              <h2 className="text-lg font-semibold text-gray-300 mb-4">
-                MORE RESULTS
+              <h2 className="text-2xl font-semibold text-gray-300 mb-4">
+               RESULTS
               </h2>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+              <div className="grid grid-cols-1 overflow-y-auto sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
                 {results.map((movie) => (
                   <div key={movie.id} className="cursor-pointer group">
                     {/* IMAGE */}
