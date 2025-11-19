@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import MovieCard from "../components/MovieCard";
+import { OrbitProgress } from "react-loading-indicators";
 
 const genreMap = {
   Action: 28,
@@ -18,10 +19,13 @@ const genreMap = {
 const Explore = () => {
   const [movies, setMovies] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchMovies = async () => {
       try {
+        setLoading(true);
+
         const url =
           "https://api.themoviedb.org/3/movie/popular?api_key=de46fde30b264ae545e53353d2a99a98";
 
@@ -35,23 +39,39 @@ const Explore = () => {
           ...page3.data.results,
         ];
 
-        setMovies(allMovies.slice(0, 51));
+        setMovies(allMovies.slice(0, 60));
       } catch (err) {
         console.error(err);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchMovies();
   }, []);
 
-  // genre filtering
   const filteredMovies = selectedGenre
     ? movies.filter((m) => m.genre_ids.includes(selectedGenre))
     : movies;
-
+  const Back = () => {
+    window.history.back();
+  }
   return (
-    <div className="min-h-screen pb-2 w-full pt-20 select-none bg-black text-white ">
-      <h1 className="text-4xl font-[600] px-6 md:px-10 font-[Inter]">Explore</h1>
+    <div className="min-h-screen pb-2 w-full pt-20 select-none bg-black text-white">
+      <div className="flex items-center gap-4">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          className="w-8 h-8 ml-6 md:ml-10 cursor-pointer"
+          onClick={Back}
+        >
+          <path d="M22.0003 13.0001L22.0004 11.0002L5.82845 11.0002L9.77817 7.05044L8.36396 5.63623L2 12.0002L8.36396 18.3642L9.77817 16.9499L5.8284 13.0002L22.0003 13.0001Z"></path>
+        </svg>
+        <h1 className="text-4xl font-[600]   font-[Inter]">
+          Explore
+        </h1>
+      </div>
 
       {/* Category Pills */}
       <div className="genre flex gap-7 mx-6 md:mx-10 pt-3 overflow-x-auto md:overflow-hidden font-[Inter] scrollbar-hide">
@@ -75,11 +95,23 @@ const Explore = () => {
         ))}
       </div>
 
-      {/* Movies Grid */}
+      {/* Movies Grid / Loader */}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 px-5 md:px-8 mt-5">
-        {filteredMovies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))}
+        {loading ? (
+          <span className="flex items-center  justify-center w-full col-span-6">
+            <OrbitProgress
+              className=""
+              color="#cbcaca"
+              size="medium"
+              text=""
+              textColor=""
+            />
+          </span>
+        ) : (
+          filteredMovies.map((movie) => (
+            <MovieCard key={movie.id} movie={movie} />
+          ))
+        )}
       </div>
     </div>
   );
