@@ -36,9 +36,9 @@ const SearchOverlay = () => {
 
   return (
     <>
-      <div className="w-full text-white pt-20 font-[Inter] min-h-screen overflow-hidden bg-black">
+      <div className="realtive w-full text-white pt-20 font-[Inter] min-h-screen overflow-hidden bg-black">
         {/* Search Box */}
-        <div className="w-full flex justify-center  px-[1rem] md:px-10">
+        <div className="w-full fixed justify-center  px-[1rem] md:px-10">
           <div className="flex gap-3 w-full p-3 rounded-xl bg-gray-900 relative items-center">
             {/* Search Icon */}
             <svg
