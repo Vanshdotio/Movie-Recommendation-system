@@ -3,11 +3,11 @@ import React from "react";
 const Trending = () => {
   return (
     <>
-      <div className="explore h-screen w-full overflow-y-auto font-[inter] p-10 px-12 text-white bg-black">
+      <div className="explore  w-full  font-[inter] p-10 px-12 text-white bg-black">
         <span>
           <h1 className="text-2xl md:text-3xl font-medium ">Trending</h1>
         </span>
-        <div className="flex gap-13">
+        <div className="trending flex overflow-y-auto gap-13">
           <div className="flex font-[ROSSTEN] mt-5">
             <div className="flex tracking-[-25px]">
               <span className="text-[12rem] select-none pt-2 z-9 ">1</span>

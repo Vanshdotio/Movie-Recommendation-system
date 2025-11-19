@@ -20,6 +20,7 @@
     display: none;
     scroll-snap-type: x mandatory;
 }
-.genre-section{
-
+.trending::-webkit-scrollbar{
+    display: none;
+    scroll-snap-type: x mandatory;
 }
