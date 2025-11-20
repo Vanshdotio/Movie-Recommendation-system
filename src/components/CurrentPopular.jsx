@@ -45,7 +45,7 @@ const CurrentPopular = () => {
   return (
     <>
       <div className="flex bg-black p-10 px-12 -mt-15 text-white flex-col font-[Inter] w-full">
-        <h1 className="text-3xl font-medium  ">Popular</h1>
+        <h1 className="text-2xl font-medium  ">Popular</h1>
 
         {/* 🔥 Swiper Slider */}
         <div className=" select-none py-6">

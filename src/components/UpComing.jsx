@@ -44,7 +44,7 @@ const UpComing = () => {
   return (
     <>
       <div className="flex bg-black p-10 px-12  text-white flex-col font-[Inter] w-full">
-        <h1 className="text-3xl font-medium  ">Up Coming</h1>
+        <h1 className="text-2xl font-medium  ">Up Coming</h1>
 
         {/* 🔥 Swiper Slider */}
         <div className=" select-none py-6">
