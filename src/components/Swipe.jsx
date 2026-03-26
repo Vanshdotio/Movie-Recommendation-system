@@ -24,7 +24,7 @@ const Swipe = () => {
       try {
         const { data: trendingData } = await axios.get(
           "https://api.themoviedb.org/3/trending/movie/day",
-          { params: { api_key: API_KEY } }
+          { params: { api_key: API_KEY } },
         );
 
         const { data: indianData } = await axios.get(
@@ -35,7 +35,7 @@ const Swipe = () => {
               with_original_language: "hi",
               sort_by: "popularity.desc",
             },
-          }
+          },
         );
 
         const mixedMovies = [
@@ -47,28 +47,27 @@ const Swipe = () => {
           mixedMovies.map(async (movie) => {
             const { data: videoData } = await axios.get(
               `https://api.themoviedb.org/3/movie/${movie.id}/videos`,
-              { params: { api_key: API_KEY } }
+              { params: { api_key: API_KEY } },
             );
 
             const trailer = videoData.results.find(
-              (vid) => vid.type === "Trailer"
+              (vid) => vid.type === "Trailer",
             );
 
             const { data: imageData } = await axios.get(
               `https://api.themoviedb.org/3/movie/${movie.id}/images`,
-              { params: { api_key: API_KEY } }
+              { params: { api_key: API_KEY } },
             );
 
-            const logo = imageData.logos?.find(
-              (l) => l.iso_639_1 === "en"
-            );
+            // 🔥 Simple logo selection
+            const logo = imageData.logos?.[0];
 
             return {
               ...movie,
               videoKey: trailer ? trailer.key : null,
               logoPath: logo ? logo.file_path : null,
             };
-          })
+          }),
         );
 
         setMovies(finalMovies);
@@ -97,8 +96,7 @@ const Swipe = () => {
       {movies.map((movie) => (
         <SwiperSlide key={movie.id}>
           <div className="relative text-white w-full h-screen overflow-hidden">
-
-            {/* 🎬 Always autoplay muted video */}
+            {/* 🎬 Video */}
             {movie.videoKey ? (
               <iframe
                 className="h-screen w-full object-cover pointer-events-none"
@@ -114,8 +112,10 @@ const Swipe = () => {
             )}
 
             {/* 🎯 Overlay */}
-            <div className="absolute bottom-10 left-6 max-w-lg">
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
 
+            <div className="absolute bottom-10 left-6 max-w-lg">
+              {/* 🔥 Logo OR Simple Styled Title */}
               {movie.logoPath ? (
                 <img
                   className="h-20 md:h-28 mb-4 object-contain"
@@ -123,19 +123,18 @@ const Swipe = () => {
                   alt={movie.title}
                 />
               ) : (
-                <h1 className="text-3xl md:text-5xl font-bold">
+                <h1 className="text-4xl md:text-6xl font-bold leading-tight">
                   {movie.title}
                 </h1>
               )}
 
-              <p className="text-white/80 mt-3 font-[inter] line-clamp-3">
+              <p className="text-white/80 mt-3 line-clamp-3">
                 {movie.overview}
               </p>
 
-              {/* 🔥 Buttons */}
+              {/* Buttons */}
               <div className="flex gap-3 mt-5">
-
-                <button className="bg-white text-black px-6 py-2 font-semibold rounded hover:scale-105 transition-all duration-300">
+                <button className="bg-white text-black px-6 py-2 font-semibold rounded">
                   ▶ Watch Now
                 </button>
 
@@ -144,22 +143,16 @@ const Swipe = () => {
                     href={`https://www.youtube.com/watch?v=${movie.videoKey}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-white/30 px-6 py-2 rounded font-semibold backdrop-blur hover:bg-white/50 hover:scale-105 transition-all duration-300"
+                    className="bg-white/30 px-6 py-2 rounded font-semibold backdrop-blur"
                   >
-                     Trailer
+                    ▶ Trailer
                   </a>
                 )}
-
               </div>
             </div>
-
           </div>
         </SwiperSlide>
       ))}
-
-      <div className="autoplay-progress" slot="container-end">
-        <span ref={progressContent}></span>
-      </div>
     </Swiper>
   );
 };
