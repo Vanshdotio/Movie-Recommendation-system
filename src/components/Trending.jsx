@@ -9,14 +9,14 @@ const Trending = () => {
     const fetchTrending = async () => {
       try {
         // 🌍 Global Trending
-        const { data: trendingData } = await axios.get(
-          "https://api.themoviedb.org/3/trending/movie/day",
+        const { data: globalData } = await axios.get(
+          "https://api.themoviedb.org/3/trending/movie/week",
           {
             params: { api_key: API_KEY },
-          },
+          }
         );
 
-        // 🇮🇳 Indian Movies
+        // 🇮🇳 Indian Movies (latest popular)
         const { data: indianData } = await axios.get(
           "https://api.themoviedb.org/3/discover/movie",
           {
@@ -25,22 +25,16 @@ const Trending = () => {
               with_original_language: "hi",
               sort_by: "popularity.desc",
             },
-          },
+          }
         );
 
-        // 🔥 Merge (6 + 4 = 10)
+        // 🔥 Merge (no sorting, natural order)
         const mixedMovies = [
-          ...trendingData.results.slice(0, 6),
-          ...indianData.results.slice(0, 4),
+          ...globalData.results.slice(0, 7),
+          ...indianData.results.slice(0, 3),
         ];
 
-        // ⭐ Sort by rating (best logic)
-        const sortedMovies = mixedMovies.sort(
-          (a, b) =>
-            b.vote_average * b.vote_count - a.vote_average * a.vote_count,
-        );
-
-        setMovies(sortedMovies);
+        setMovies(mixedMovies);
       } catch (err) {
         console.log("Error:", err);
       }
@@ -73,7 +67,6 @@ const Trending = () => {
                 className="h-full w-full rounded-xl object-cover hover:scale-105 transition-all duration-300"
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.title}
-                onContextMenu={(e) => e.preventDefault()}
               />
             </div>
           </div>

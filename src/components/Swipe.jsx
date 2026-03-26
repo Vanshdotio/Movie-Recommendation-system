@@ -128,7 +128,7 @@ const Swipe = () => {
                 </h1>
               )}
 
-              <p className="text-white/80 mt-3 line-clamp-3">
+              <p className="text-white/80 mt-3 font-[inter] line-clamp-3">
                 {movie.overview}
               </p>
 
