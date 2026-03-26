@@ -1,81 +1,85 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const Trending = () => {
+  const [movies, setMovies] = useState([]);
+  const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
+
+  useEffect(() => {
+    const fetchTrending = async () => {
+      try {
+        // 🌍 Global Trending
+        const { data: trendingData } = await axios.get(
+          "https://api.themoviedb.org/3/trending/movie/day",
+          {
+            params: { api_key: API_KEY },
+          },
+        );
+
+        // 🇮🇳 Indian Movies
+        const { data: indianData } = await axios.get(
+          "https://api.themoviedb.org/3/discover/movie",
+          {
+            params: {
+              api_key: API_KEY,
+              with_original_language: "hi",
+              sort_by: "popularity.desc",
+            },
+          },
+        );
+
+        // 🔥 Merge (6 + 4 = 10)
+        const mixedMovies = [
+          ...trendingData.results.slice(0, 6),
+          ...indianData.results.slice(0, 4),
+        ];
+
+        // ⭐ Sort by rating (best logic)
+        const sortedMovies = mixedMovies.sort(
+          (a, b) =>
+            b.vote_average * b.vote_count - a.vote_average * a.vote_count,
+        );
+
+        setMovies(sortedMovies);
+      } catch (err) {
+        console.log("Error:", err);
+      }
+    };
+
+    fetchTrending();
+  }, []);
+
   return (
-    <>
-      <div className="explore  w-full  font-[inter] p-10 px-12 text-white bg-black">
-        <span>
-          <h1 className="text-2xl md:text-3xl font-medium ">Trending</h1>
-        </span>
-        <div className="trending flex overflow-y-auto gap-13">
-          <div className="flex font-[ROSSTEN] mt-5">
-            <div className="flex tracking-[-25px]">
-              <span className="text-[12rem] select-none pt-2 z-9 ">1</span>
-              <span className="object-fit h-50 w-40">
-                <img
-                  className="h-full w-full rounded-xl"
-                  src="https://stat5.bollywoodhungama.in/wp-content/uploads/2025/11/Dhurandhar1.jpg"
-                  alt=""
-                  onContextMenu={(e) => e.preventDefault()}
-                />
-              </span>
+    <div className="explore w-full font-[inter] p-10 px-12 text-white bg-black">
+      <h1 className="text-2xl md:text-3xl font-medium">
+        Trending 
+      </h1>
+
+      <div className="trending flex overflow-x-auto gap-8">
+        {movies.map((movie, index) => (
+          <div
+            key={movie.id}
+            className="font-[ROSSTEN] mt-5 flex items-baseline select-none"
+          >
+            {/* Number */}
+            <span className="text-[6rem] md:text-[12rem] opacity-80 leading-none">
+              {index + 1}
+            </span>
+
+            {/* Poster */}
+            <div className="h-64 w-44 relative">
+              <img
+                loading="lazy"
+                className="h-full w-full rounded-xl object-cover hover:scale-105 transition-all duration-300"
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                alt={movie.title}
+                onContextMenu={(e) => e.preventDefault()}
+              />
             </div>
           </div>
-          <div className="font-[ROSSTEN] mt-5">
-            <div className="flex tracking-[-25px]">
-              <span className="text-[12rem] select-none pt-2 z-9 ">2</span>
-              <span className="object-fit h-50 w-40">
-                <img
-                  className="h-full w-full rounded-xl"
-                  src="https://m.media-amazon.com/images/M/MV5BMTk2ZmFhYjctYWZiYy00N2IxLWEzMWItZGRiMDY4ZDQwZWFlXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
-                  alt=""
-                  onContextMenu={(e) => e.preventDefault()}
-                />
-              </span>
-            </div>
-          </div>
-          <div className="font-[ROSSTEN] mt-5">
-            <div className="flex tracking-[-25px]">
-              <span className="text-[12rem] select-none pt-2 z-9 ">3</span>
-              <span className="object-fit h-50 w-40">
-                <img
-                  className="h-full w-full rounded-xl"
-                  src="https://stat5.bollywoodhungama.in/wp-content/uploads/2025/10/Mahayoddha-Rama-1.jpg"
-                  alt=""
-                  onContextMenu={(e) => e.preventDefault()}
-                />
-              </span>
-            </div>
-          </div>
-          <div className="font-[ROSSTEN] mt-5">
-            <div className="flex tracking-[-25px]">
-              <span className="text-[12rem] select-none pt-2 z-9 ">4</span>
-              <span className="object-fit h-50 w-40">
-                <img
-                  className="h-full w-full rounded-xl"
-                  src="https://media5.bollywoodhungama.in/wp-content/uploads/2025/09/Paper-Leak.jpg"
-                  alt=""
-                  onContextMenu={(e) => e.preventDefault()}
-                />
-              </span>
-            </div>
-          </div>
-          <div className="font-[ROSSTEN] mt-5">
-            <div className="flex tracking-[-25px]">
-              <span className="text-[12rem] select-none pt-2 z-9 ">5</span>
-              <span className="object-fit h-50 w-40">
-                <img
-                  className="h-full w-full rounded-xl"
-                  src="https://stat5.bollywoodhungama.in/wp-content/uploads/2025/08/Son-Of-Sardaar-2-005.jpg"
-                  alt=""
-                  onContextMenu={(e) => e.preventDefault()}
-                />
-              </span>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
-    </>
+    </div>
   );
 };
 
