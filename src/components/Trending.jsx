@@ -1,5 +1,16 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Lenis from "lenis";
+
+const lenis = new Lenis();
+
+// Use requestAnimationFrame to continuously update the scroll
+function raf(time) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+
+requestAnimationFrame(raf);
 
 const Trending = () => {
   const [movies, setMovies] = useState([]);
@@ -13,7 +24,7 @@ const Trending = () => {
           "https://api.themoviedb.org/3/trending/movie/week",
           {
             params: { api_key: API_KEY },
-          }
+          },
         );
 
         // 🇮🇳 Indian Movies (latest popular)
@@ -25,7 +36,7 @@ const Trending = () => {
               with_original_language: "hi",
               sort_by: "popularity.desc",
             },
-          }
+          },
         );
 
         // 🔥 Merge (no sorting, natural order)
@@ -45,15 +56,13 @@ const Trending = () => {
 
   return (
     <div className="explore w-full font-[inter] p-10 px-12 text-white bg-black">
-      <h1 className="text-2xl md:text-3xl font-medium">
-        Trending 
-      </h1>
+      <h1 className="text-2xl md:text-3xl font-medium">Trending</h1>
 
       <div className="trending flex overflow-x-auto gap-8">
         {movies.map((movie, index) => (
           <div
             key={movie.id}
-            className="font-[ROSSTEN] mt-5 flex items-baseline select-none"
+            className="font-[ROSSTEN] mt-5 -space-x-1 flex items-baseline select-none"
           >
             {/* Number */}
             <span className="text-[6rem] md:text-[12rem] opacity-80 leading-none">

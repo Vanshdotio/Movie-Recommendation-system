@@ -10,6 +10,7 @@ const MovieCard = ({ movie }) => {
         <img
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
           alt={movie.title}
+          loading="lazy"
           className="w-full h-80 object-cover 
                      md:group-hover:scale-105 
                      transition-all duration-300"
