@@ -102,7 +102,7 @@ const Swipe = () => {
         ...prev,
         [currentMovie.id]: true,
       }));
-    }, 3000);
+    }, 4000);
 
     return () => clearTimeout(timer);
   }, [activeIndex, movies]);
