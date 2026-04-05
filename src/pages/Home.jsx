@@ -1,4 +1,5 @@
 import React, { Suspense } from 'react'
+import Loader from '../components/Loader';
 
 const Swipe = React.lazy(() => import('../components/Swipe'));
 const Trending = React.lazy(() => import('../components/Trending'));
@@ -10,7 +11,7 @@ const Home = () => {
   return (
     <>
     <div className='explore relative h-screen w-full md:w-full bg-black  '>
-      <Suspense fallback={<div className="text-white p-4">Loading home sections...</div>}>
+      <Suspense fallback={<Loader />}>
         <Swipe />
         <Trending />
         <CurrentPopular />

@@ -1,6 +1,7 @@
 import React, { useEffect, useState, Suspense } from "react";
 import axios from "axios";
 import { OrbitProgress } from "react-loading-indicators";
+import Loader from "../components/Loader";
 
 const MovieCard = React.lazy(() => import("../components/MovieCard"));
 
@@ -110,9 +111,9 @@ const Explore = () => {
           </span>
         ) : (
           <Suspense fallback={
-            <span className="flex items-center justify-center w-full col-span-6">
-              <OrbitProgress className="" color="#cbcaca" size="medium" text="" textColor="" />
-            </span>
+            <div className="col-span-6">
+              <Loader />
+            </div>
           }>
             {filteredMovies.map((movie) => (
               <MovieCard key={movie.id} movie={movie} />

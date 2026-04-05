@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
 import Lenis from "lenis";
+import Loader from "./components/Loader";
 
 const Nav = React.lazy(() => import("./components/Nav"));
 const Approute = React.lazy(() => import("./routes/Approute"));
@@ -17,7 +18,7 @@ requestAnimationFrame(raf);
 
 const App = () => {
   return (
-    <Suspense fallback={<h1>Loading...</h1>}>
+    <Suspense fallback={<Loader />}>
       <Nav />
       <Approute />
     </Suspense>
