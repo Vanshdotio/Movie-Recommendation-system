@@ -1,8 +1,8 @@
-import React from "react";
-import Nav from "./components/Nav";
-import Home from "./pages/Home";
+import React, { Suspense } from "react";
 import Lenis from "lenis";
-import Approute from "./routes/Approute";
+
+const Nav = React.lazy(() => import("./components/Nav"));
+const Approute = React.lazy(() => import("./routes/Approute"));
 
 // Initialize Lenis
 const lenis = new Lenis();
@@ -17,10 +17,10 @@ requestAnimationFrame(raf);
 
 const App = () => {
   return (
-    <>
+    <Suspense fallback={<h1>Loading...</h1>}>
       <Nav />
       <Approute />
-    </>
+    </Suspense>
   );
 };
 

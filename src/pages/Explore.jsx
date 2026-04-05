@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import axios from "axios";
-import MovieCard from "../components/MovieCard";
 import { OrbitProgress } from "react-loading-indicators";
+
+const MovieCard = React.lazy(() => import("../components/MovieCard"));
 
 const genreMap = {
   Action: 28,
@@ -108,9 +109,15 @@ const Explore = () => {
             />
           </span>
         ) : (
-          filteredMovies.map((movie) => (
-            <MovieCard key={movie.id} movie={movie} />
-          ))
+          <Suspense fallback={
+            <span className="flex items-center justify-center w-full col-span-6">
+              <OrbitProgress className="" color="#cbcaca" size="medium" text="" textColor="" />
+            </span>
+          }>
+            {filteredMovies.map((movie) => (
+              <MovieCard key={movie.id} movie={movie} />
+            ))}
+          </Suspense>
         )}
       </div>
     </div>

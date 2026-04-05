@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import axios from "axios";
-import MovieCard from "../components/MovieCard";
 import { OrbitProgress } from "react-loading-indicators";
+
+const MovieCard = React.lazy(() => import("../components/MovieCard"));
 
 // 🔥 Swiper Imports
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -67,7 +68,9 @@ const CurrentPopular = () => {
                   key={movie.id}
                   style={{ width: "180px" }} // card width
                 >
-                  <MovieCard movie={movie} />
+                  <Suspense fallback={<div>Loading card...</div>}>
+                    <MovieCard movie={movie} />
+                  </Suspense>
                 </SwiperSlide>
               ))}
             </Swiper>

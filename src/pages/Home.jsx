@@ -1,19 +1,22 @@
-import React from 'react'
-import Swipe from '../components/Swipe'
-import Trending from '../components/Trending'
-import CurrentPopular from '../components/CurrentPopular'
-import LatestMovie from '../components/LatestMovie'
-import UpComing from '../components/UpComing'
+import React, { Suspense } from 'react'
+
+const Swipe = React.lazy(() => import('../components/Swipe'));
+const Trending = React.lazy(() => import('../components/Trending'));
+const CurrentPopular = React.lazy(() => import('../components/CurrentPopular'));
+const LatestMovie = React.lazy(() => import('../components/LatestMovie'));
+const UpComing = React.lazy(() => import('../components/UpComing'));
 
 const Home = () => {
   return (
     <>
     <div className='explore relative h-screen w-full md:w-full bg-black  '>
+      <Suspense fallback={<div className="text-white p-4">Loading home sections...</div>}>
         <Swipe />
         <Trending />
         <CurrentPopular />
         <LatestMovie />
         <UpComing />
+      </Suspense>
     </div>
     </>
   )

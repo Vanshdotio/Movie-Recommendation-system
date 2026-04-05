@@ -173,7 +173,7 @@ const Swipe = () => {
               </p>
 
               {/* Buttons */}
-              <div className="flex flex-wrap sm:flex-nowrap gap-3 mt-5 overflow-x-auto no-scrollbar">
+              <div className="flex flex-wrap sm:flex-nowrap gap-3 mt-5  no-scrollbar">
                 {/* Watch Now */}
                 <button className="shrink-0 cursor-pointer gap-2 active:scale-95 transition-all flex items-center bg-white font-[inter] text-black px-5 sm:px-6 py-2 font-semibold rounded">
                   <svg
